@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  *  服务类
  * </p>
  *
- * @author 关注公众号：MarkerHub
+ * @author Xu Bowen
  * @since 2021-12-03
  */
 public interface UserService extends IService<User> {
