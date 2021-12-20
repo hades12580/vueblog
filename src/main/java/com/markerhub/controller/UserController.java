@@ -4,10 +4,13 @@ package com.markerhub.controller;
 import com.markerhub.common.lang.Result;
 import com.markerhub.entity.User;
 import com.markerhub.service.UserService;
+import com.markerhub.util.ShiroUtil;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -33,6 +36,8 @@ public class UserController {
 
     @PostMapping("/save")
     public Result save(@Validated @RequestBody User user) {
+
+        userService.save(user);
         return Result.succ(user);
     }
 }
