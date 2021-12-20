@@ -28,6 +28,7 @@ public class GlobalExceptionHandler {
         log.error("实体校验异常: -------------------{}", e);
         BindingResult bindingResult = e.getBindingResult();
         ObjectError objectError = bindingResult.getAllErrors().stream().findFirst().get();
+
         return Result.fail(objectError.getDefaultMessage());
     }
 

@@ -1,16 +1,13 @@
 package com.markerhub.shiro;
 
-import ch.qos.logback.core.joran.util.beans.BeanUtil;
+import cn.hutool.core.bean.BeanUtil;
 import com.markerhub.entity.User;
 import com.markerhub.service.UserService;
 import com.markerhub.util.JwtUtils;
-import lombok.SneakyThrows;
-import org.apache.commons.beanutils.BeanUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -33,7 +30,6 @@ public class AccountRealm extends AuthorizingRealm {
         return null;
     }
 
-    @SneakyThrows
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
@@ -51,7 +47,8 @@ public class AccountRealm extends AuthorizingRealm {
         }
 
         AccountProfile profile = new AccountProfile();
-        BeanUtils.copyProperties(user, profile);
+
+        BeanUtil.copyProperties(user, profile);
 
         System.out.println("-----------------------");
 

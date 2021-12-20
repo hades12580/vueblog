@@ -2,8 +2,6 @@ package com.markerhub.config;
 
 import com.markerhub.shiro.AccountRealm;
 import com.markerhub.shiro.JwtFilter;
-import org.apache.catalina.Realm;
-import org.apache.shiro.mgt.SessionsSecurityManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.session.mgt.SessionManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -20,7 +18,6 @@ import org.springframework.context.annotation.Configuration;
 import javax.servlet.Filter;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 @Configuration
@@ -39,7 +36,7 @@ public class ShiroConfig {
     }
 
     @Bean
-    public SessionsSecurityManager securityManager(AccountRealm accountRealm,
+    public DefaultWebSecurityManager securityManager(AccountRealm accountRealm,
                                                    SessionManager sessionManager,
                                                    RedisCacheManager redisCacheManager) {
 
