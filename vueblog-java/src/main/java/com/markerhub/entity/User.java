@@ -42,8 +42,7 @@ public class User implements Serializable {
 
     @NotBlank(message = "密码不能为空")
     private String password;
-
-    @NotBlank(message = "状态码不能为空")
+    
     private Integer status;
 
     private LocalDateTime created;
