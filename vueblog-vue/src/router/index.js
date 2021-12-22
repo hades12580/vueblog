@@ -1,14 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
+import Blogs from '../views/Blogs.vue'
 import BlogDetail from '../views/BlogDetail.vue'
 import BlogEdit from '../views/BlogEdit.vue'
+
 Vue.use(VueRouter)
+
 const routes = [
   {
     path: '/',
     name: 'Index',
-    redirect: { name: 'Blogs' }
+    redirect: { name: "Blogs" }
   },
   {
     path: '/login',
@@ -43,6 +46,7 @@ const routes = [
     component: BlogEdit
   }
 ];
+
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
